@@ -19,7 +19,7 @@ class ProductMapperImplTest {
     private ProductMapper productMapper = new ProductMapperImpl();
 
     @Test
-    void toProduct() {
+    void toProductShouldReturnNewProductFromProductDto() {
 
         // given
         ProductDto dto = new ProductDto("Книга", "Интересная", BigDecimal.valueOf(18.25));
@@ -37,7 +37,7 @@ class ProductMapperImplTest {
     }
 
     @Test
-    void toInfoProductDto() {
+    void toInfoProductDtoShouldReturnNewInfoProductDtoFromProduct() {
         // given
         Product product = new Product(UUID.fromString("7bdcf3b6-511c-4ff5-a7f3-bbf03004367b"), "Книга", "Интересная", BigDecimal.valueOf(18.25), LocalDateTime.MIN);
         InfoProductDto expected = new InfoProductDto(UUID.fromString("7bdcf3b6-511c-4ff5-a7f3-bbf03004367b"),"Книга", "Интересная", BigDecimal.valueOf(18.25));
@@ -56,7 +56,7 @@ class ProductMapperImplTest {
     }
 
     @Test
-    void merge() {
+    void mergeShouldReturnNewProductFromInfoProductDtoAndProduct() {
         // given
         Product product = new Product(UUID.fromString("c74a37d4-0af5-41f1-a8ad-5462bbb7d18b"), "Журнал", "Молодежный",
                 BigDecimal.valueOf(10.25), LocalDateTime.MIN);
