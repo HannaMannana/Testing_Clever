@@ -52,7 +52,6 @@ class ProductMapperImplTest {
                 .hasFieldOrPropertyWithValue(InfoProductDto.Fields.name, expected.getName())
                 .hasFieldOrPropertyWithValue(InfoProductDto.Fields.description, expected.getDescription())
                 .hasFieldOrPropertyWithValue(InfoProductDto.Fields.price, expected.getPrice());
-
     }
 
     @Test
@@ -75,6 +74,5 @@ class ProductMapperImplTest {
 
         // then
         assertEquals(expected, actual);
-
     }
 }
