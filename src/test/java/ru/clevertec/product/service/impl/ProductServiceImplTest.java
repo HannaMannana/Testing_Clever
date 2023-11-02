@@ -40,7 +40,7 @@ class ProductServiceImplTest {
 
 
     @Test
-    void get() {
+    void getShouldReturnInfoProductDtoByUuid() {
         // given
         InfoProductDto expected = new InfoProductDto(UUID.fromString("7bdcf3b6-511c-4ff5-a7f3-bbf03004367b"),
                 "Книга", "Интересная", BigDecimal.valueOf(18.25));
@@ -62,7 +62,7 @@ class ProductServiceImplTest {
     }
 
     @Test
-    void getAll() {
+    void getAllShouldReturnListOfInfoProductDtoWithUuid() {
         // given
         InfoProductDto infoProdDto = new InfoProductDto(UUID.fromString("7bdcf3b6-511c-4ff5-a7f3-bbf03004367b"),
                 "Книга", "Интересная", BigDecimal.valueOf(18.25));
@@ -96,7 +96,7 @@ class ProductServiceImplTest {
     }
 
     @Test
-    void createWithUuid() {
+    void createShouldReturnUuidNewProductFromInfoProductDto() {
         //given
         Product savedProduct = new Product(UUID.fromString("7bdcf3b6-511c-4ff5-a7f3-bbf03004367b"),
                 "Книга", "Интересная", BigDecimal.valueOf(18.25),LocalDateTime.MIN);
@@ -119,7 +119,7 @@ class ProductServiceImplTest {
     }
 
     @Test
-    void update() {
+    void updateProductWithInfoProductDto() {
         Product expected = new Product(UUID.fromString("7bdcf3b6-511c-4ff5-a7f3-bbf03004367b"),
                 "Книга", "Интересная", BigDecimal.valueOf(18.25), LocalDateTime.MIN);
         ProductDto productDto = new ProductDto("Книга", "Интересная", BigDecimal.valueOf(18.25));
@@ -142,7 +142,7 @@ class ProductServiceImplTest {
 
 
     @Test
-    void delete() {
+    void deleteProductByUuid() {
         // given
         UUID uuid = UUID.fromString("7bdcf3b6-511c-4ff5-a7f3-bbf03004367b");
 

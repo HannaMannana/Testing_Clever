@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import ru.clevertec.product.data.InfoProductDto;
 import ru.clevertec.product.data.ProductDto;
 import ru.clevertec.product.entity.Product;
+import ru.clevertec.product.exception.ProductNotFoundException;
 import ru.clevertec.product.mapper.ProductMapper;
 import ru.clevertec.product.repository.ProductRepository;
 import ru.clevertec.product.service.ProductService;
@@ -20,10 +21,8 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public InfoProductDto get(UUID uuid) throws RuntimeException {
-        if(uuid == null) {
-            throw new IllegalArgumentException("slides");
-        }
-        return mapper.toInfoProductDto(productRepository.findById(uuid).orElseThrow());
+        return mapper.toInfoProductDto(productRepository.findById(uuid).orElseThrow(()->
+                new ProductNotFoundException(UUID.fromString(uuid.toString()))));
     }
 
     @Override
